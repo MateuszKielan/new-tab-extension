@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* Main Body and Dashboard styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #FD8B51;
@@ -44,7 +44,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Adjust overlay color and opacity */
+  background-color: rgba(0, 0, 0, 0.1); 
   z-index: 0;
 }
 
@@ -93,13 +93,14 @@ body::before {
   height: 24px;
 }
 
-/* To-Do Input Field*/
+/* To-Do Input Field */
 .row {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #edeef0;
   border-radius: 30px;
+  padding: 1px 1px;
   padding-left: 20px;
   margin-bottom: 25px;
   margin-top: 20px;
@@ -110,6 +111,7 @@ input {
   flex: 1;
   border: none;
   outline: none;
+  padding: 5px 6px;
   background: transparent;
   padding: 10px;
   align-items: center;
@@ -119,12 +121,17 @@ input {
 button {
   border: none;
   outline: none;
-  padding: 16px 50px;
+  padding: 10px 20px;
   background: #ffffff;
   color: #000000 !important;
-  font-size: 16px;
+  font-size: 13px;
   cursor: pointer;
   border-radius: 40px;
+  transition: 0.8s;
+}
+
+button:hover {
+  background: #D4BEE4; /* Slightly darker shade on hover */
 }
 
 ul {
@@ -133,29 +140,33 @@ ul {
   width: 100%;
 }
 
-ul li {
+ul li.task {
   list-style: none;
-  font-size: 16px;
-  padding: 10px 15px;
+  font-size: 14px;
+  padding: 1px 3px;
   background-color: #edeef0;
   color: #333;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px; 
   margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
+  transition: 1.5s;
 }
 
 /* Style for completed tasks */
 ul li.completed {
   text-decoration: line-through; /* Cross out text */
-  color: #888888; /* Faded color */
-  background-color: #d1d1d1; /* Change background color when completed */
+  color: #888888; 
+  background-color: #d1d1d1; 
 }
 
-
+.delete-icon {
+  width: 16px; /* Smaller icon size */
+  height: 16px;
+}
 
 
 .search-bar {
