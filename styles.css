@@ -54,8 +54,9 @@ body::before {
   padding: 20px;
   border-radius: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   font-size: 1em;
@@ -64,11 +65,70 @@ body::before {
   
 }
 
-/* Individual Card Sizes */
+/* To-Do Card Styles */
 .todo {
   grid-column: span 1;
   grid-row: span 2;
 }
+
+/* To-Do Header Styling */
+.todo-header {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 8px; 
+  margin: 0; 
+  padding: 0; 
+  width: 100%;
+}
+
+.todo-header h2 {
+  font-size: 1.2em;
+  color: #F2E5BF;
+  margin: 0;
+}
+
+.to-do-image {
+  width: 24px; 
+  height: 24px;
+}
+
+/* To-Do Input Field*/
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #ffffff;
+  color: #000000 !important;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+
+
 
 .search-bar {
   grid-column: span 2;
