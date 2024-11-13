@@ -127,6 +127,34 @@ button {
   border-radius: 40px;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+ul li {
+  list-style: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: #edeef0;
+  color: #333;
+  border-radius: 10px; /* Rounded corners */
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+/* Style for completed tasks */
+ul li.completed {
+  text-decoration: line-through; /* Cross out text */
+  color: #888888; /* Faded color */
+  background-color: #d1d1d1; /* Change background color when completed */
+}
+
 
 
 
