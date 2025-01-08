@@ -54,14 +54,18 @@ function crossOutTask(element) {
     element.classList.toggle("completed");
   }
 
-
+/**
+ * Search engine code that takes care of two main functions:
+ *  1. Switch the search engine
+ *  2. Switch the placeholder name appropriately
+ */
 document.querySelectorAll(".engine-btn").forEach(button => {
     button.addEventListener('click', function () {
         const form = document.getElementById('search-form'); // Get the search form element
         const inputField = document.getElementById('google-search-input') // Get the placeholder element
 
         form.action = this.getAttribute('data-action');
-        inputField.placeholder = `Search with ${this.textContent}`;
+        inputField.placeholder = `Search with ${this.textContent}`; // Change the placeholder content
     })
 })
 
