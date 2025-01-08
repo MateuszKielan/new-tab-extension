@@ -11,6 +11,7 @@
     <!-- Header Section -->
 
     <!-- Widgets -->
+
      <!-- To-Do Widget -->
       <div class="card todo">
         <!-- To-Do Header -->
@@ -29,13 +30,24 @@
         <ul id="list-container">
         </ul>
       </div>
+      <!-- End of To-Do Widget -->
 
+    <!-- Search Bar Widget -->
     <div class="card search-bar">
-      <form action="https://www.google.com/search" method="GET" target="_blank">
+      <form id="search-form" action="https://www.google.com/search" method="GET" target="_blank">
         <input type="text" name="q" placeholder="Search Google..." id="google-search-input">
         <button type="submit">Search</button>
       </form>
+
+      <!-- Search Engine Selection Buttons -->
+      <div class="search-engines">
+        <button type="button" class="engine-btn" data-action="https://www.google.com/search">Google</button>
+        <button type="button" class="engine-btn" data-action="https://duckduckgo.com/">DuckDuckGo</button>
+        <button type="button" class="engine-btn" data-action="https://search.yahoo.com/search">Yahoo</button>
+      </div>
     </div>
+
+    
     <div class="card calendar">Calendar</div>
     <div class="card time">Time</div>
     <div class="card bookmarks">Bookmarks</div>

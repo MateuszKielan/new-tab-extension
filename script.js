@@ -54,3 +54,12 @@ function crossOutTask(element) {
     element.classList.toggle("completed");
   }
 
+
+document.querySelectorAll(".engine-btn").forEach(button => {
+    button.addEventListener('click', function () {
+        const form = document.getElementById('search-form'); // Get the search form element
+        form.action = this.getAttribute('data-action');
+    })
+})
+
+

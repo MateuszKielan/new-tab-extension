@@ -173,6 +173,60 @@ ul li.completed {
   grid-column: span 2;
 }
 
+.search-bar form {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Form stretches to match the widget width */
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+#google-search-input {
+  flex: 1; /* Allows the input to take up the remaining space */
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Adjust the button styling if needed */
+.search-bar button {
+  padding: 10px 20px;
+  margin-left: 10px; /* Adds space between input and button */
+  border-radius: 20px;
+}
+
+.search-engines {
+  display: flex;
+  justify-content: space-around; /* Space buttons evenly */
+  align-self: center;
+  margin-top: 15px;
+}
+
+.engine-btn {
+  width: 20wh; /* Button diameter */
+  height: 50px;
+  border-radius: 50%; /* Make the buttons circular */
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.engine-btn:hover {
+  background-color: #d4bee4; /* Highlight color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.engine-btn:active {
+  transform: scale(0.95); /* Shrink slightly when clicked */
+}
+
 .calendar {
   grid-column: 1/ span 1;
   grid-row: 3 / span 2;
