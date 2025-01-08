@@ -58,7 +58,10 @@ function crossOutTask(element) {
 document.querySelectorAll(".engine-btn").forEach(button => {
     button.addEventListener('click', function () {
         const form = document.getElementById('search-form'); // Get the search form element
+        const inputField = document.getElementById('google-search-input') // Get the placeholder element
+
         form.action = this.getAttribute('data-action');
+        inputField.placeholder = `Search with ${this.textContent}`;
     })
 })
 
