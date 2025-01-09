@@ -12,7 +12,7 @@
 
     <!-- Widgets -->
 
-     <!-- To-Do Widget -->
+     <!-- START To-Do Widget -->
       <div class="card todo">
         <!-- To-Do Header -->
         <div class="todo-header">
@@ -30,9 +30,9 @@
         <ul id="list-container">
         </ul>
       </div>
-      <!-- End of To-Do Widget -->
+      <!-- END To-Do Widget -->
 
-    <!-- Search Bar Widget -->
+    <!-- START Search Bar Widget -->
     <div class="card search-bar">
       <form id="search-form" action="https://www.google.com/search" method="GET" target="_blank">
         <input type="text" name="q" placeholder="Search Google..." id="google-search-input">
@@ -46,10 +46,19 @@
         <button type="button" class="engine-btn" data-action="https://search.yahoo.com/search">Yahoo</button>
       </div>
     </div>
+    <!-- END Search Bar Widget-->
 
     
     <div class="card calendar">Calendar</div>
-    <div class="card time">Time</div>
+    <div class="card time">
+      <div class="clock">
+        <span id="hrs">00</span>
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span>
+      </div>
+    </div>
     <div class="card bookmarks">Bookmarks</div>
     <div class="card weather">Weather Forecast</div>
     <div class="card gmail">Gmail</div>

@@ -179,6 +179,7 @@ ul li.completed {
   width: 100%; /* Form stretches to match the widget width */
   background-color: #ffffff;
   border-radius: 15px;
+  margin-top: 20px;
 }
 
 #google-search-input {
@@ -200,12 +201,12 @@ ul li.completed {
   display: flex;
   justify-content: space-around; /* Space buttons evenly */
   align-self: center;
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .engine-btn {
   width: 20wh; /* Button diameter */
-  height: 50px;
+  height: 3vh;
   border-radius: 50%; /* Make the buttons circular */
   background-color: #ffffff;
   color: #000;
@@ -235,6 +236,14 @@ ul li.completed {
 .time {
   grid-column: 2/ span 1;
   grid-row: 2 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.clock {
+  font-size: 3vh;
 }
 
 .bookmarks {
