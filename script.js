@@ -54,6 +54,8 @@ function crossOutTask(element) {
     element.classList.toggle("completed");
   }
 
+
+
 /**
  * Search engine code that takes care of two main functions:
  *  1. Switch the search engine
@@ -69,17 +71,26 @@ document.querySelectorAll(".engine-btn").forEach(button => {
     })
 })
 
+/**
+ * Section dedicated to the digital clock
+ */
+
+// Setting the callout time to every second
 setInterval(updateTime, 1000);
+
 function updateTime() {
+    // Get the hours, min,sec
     let time = new Date();
     let hour = time.getHours();
     let min = time.getMinutes();
     let sec = time.getSeconds();
 
+    // Get the appropriate fields from the html
     const hourField = document.getElementById('hrs');
     const minField = document.getElementById('min');
     const secField = document.getElementById('sec')
 
+    // Update the fields with the current time 
     hourField.innerHTML = hour;
     minField.innerHTML = min;
     secField.innerHTML = sec;
