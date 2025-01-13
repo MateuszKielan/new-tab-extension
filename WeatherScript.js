@@ -1,6 +1,21 @@
 // Open Weather Map API Key
 const myKey = "d6ba5f951aad1233103595391c73212b"
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
+
+function storeTemp(city) {
+    const tempElement = document.getElementById('temperature');
+    const descriptionElement = document.getElementById('status');
+
+    const url = `${apiUrl}?q=${city}&appid=${myKey}&units=metric`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            tempElement.innerHTML = `${Math.round(data.main.temp)}°C`;
+            descriptionElement.textContent = data.weather[0].description;
+        })
+}
 
 /**
  * Function storePosition
@@ -13,19 +28,21 @@ function storePosition(position){
     const longitude = position.coords.longitude;
 
     // Use OpenWeatherMap's reverse geocoding API to convert latitude and longitude into city name
-    const apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${myKey}`;
+    const reverseApiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${myKey}`;
 
     // Get the location element from index.html
-    const locationElement = document.getElementById('location')
+    const locationElement = document.getElementById('location');
     
     // This portion of code fetches the data from apiURL and extracts the city name
-    fetch(apiUrl) 
+    fetch(reverseApiUrl) 
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
                 const city = data[0].name;
+
                 locationElement.innerHTML = city;
-                return city;
+
+                storeTemp(city);
             } else {
                 console.log("City not found");
             }
