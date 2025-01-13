@@ -2,16 +2,24 @@
 const myKey = "d6ba5f951aad1233103595391c73212b"
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-
+/**
+ * Function storeTemp that takes care of fetching and displaying the correct temperature and description
+ * @param {String} city : name of the city
+ */
 function storeTemp(city) {
+    // Retrieve Temperature and Status elements
     const tempElement = document.getElementById('temperature');
     const descriptionElement = document.getElementById('status');
 
+    // Define the fetch url
     const url = `${apiUrl}?q=${city}&appid=${myKey}&units=metric`;
 
+    // Fetch the url
     fetch(url)
+        // Converting to json
         .then(response => response.json())
         .then(data => {
+            // Display the temperature and description
             tempElement.innerHTML = `${Math.round(data.main.temp)}°C`;
             descriptionElement.textContent = data.weather[0].description;
         })
