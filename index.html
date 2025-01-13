@@ -64,7 +64,13 @@
     <!-- END Time Widget -->
 
     <div class="card bookmarks">Bookmarks</div>
-    <div class="card weather">Weather Forecast</div>
+    <div class="card weather">
+      <div class="weather-info">
+        <h2 id="location"></h2>
+        <p id="temperature"></p>
+        <p id="status"></p>
+      </div>
+    </div>
     <div class="card gmail">Gmail</div>
     <div class="card chatGpt">ChatGpt</div>
     <div class="card news">News</div> 
@@ -72,7 +78,8 @@
 
   <!-- START Connecting JS files -->
   <script src="script.js"></script>
-  <script src="WeatherScript.js"></script>
+  <script src="weatherScript.js"></script>
   <!-- END Connecting JS files -->
+
 </body>
 </html>
