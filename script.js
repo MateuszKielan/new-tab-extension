@@ -96,4 +96,5 @@ function updateTime() {
     secField.innerHTML = sec;
 }
 
+// Call the function
 updateTime()
