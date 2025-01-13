@@ -78,6 +78,9 @@ document.querySelectorAll(".engine-btn").forEach(button => {
 // Setting the callout time to every second
 setInterval(updateTime, 1000);
 
+/**
+ * Function updateTime that updates the current local time
+ */
 function updateTime() {
     // Get the hours, min,sec
     let time = new Date();
@@ -90,10 +93,25 @@ function updateTime() {
     const minField = document.getElementById('min');
     const secField = document.getElementById('sec')
 
-    // Update the fields with the current time 
-    hourField.innerHTML = hour;
-    minField.innerHTML = min;
-    secField.innerHTML = sec;
+    // Update the fields with the current time
+    // If the field is less then 10 add a zero to the front
+    if (hour < 10) {
+        hourField.innerHTML = "0" + hour;
+    } else {
+        hourField.innerHTML = hour;
+    }
+
+    if (min < 10) {
+        minField.innerHTML = "0" + min;
+    } else {
+        minField.innerHTML = min;
+    }
+
+    if (sec < 10) {
+        secField.innerHTML = "0" + sec;
+    } else {
+        secField.innerHTML = sec;
+    }
 }
 
 // Call the function
