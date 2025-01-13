@@ -5,12 +5,14 @@ function storePosition(position){
     const longitude = position.coords.longitude;
 
     const apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${myKey}`;
-
+    const locationElement = document.getElementById('location')
+    
     fetch(apiUrl) 
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
                 const city = data[0].name;
+                locationElement.innerHTML = city;
                 console.log(`City: ${city}`);
             } else {
                 console.log("City not found");
@@ -19,6 +21,7 @@ function storePosition(position){
         .catch(error => {
             console.error("Error fetching city data:", error);
         });
+    
 }
 
 
