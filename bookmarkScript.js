@@ -3,6 +3,11 @@ const inputField = document.getElementById('urlInput');
 const addButton = document.getElementById('addBookmark');
 const bookmarkListField = document.getElementById('bookmarkList');
 
+/**
+ * Function isValidURL that checks wheter the provided link is valid
+ * @param {*} url 
+ * @returns 
+ */
 function isValidURL(url) {
     const pattern = new RegExp(
         "^([a-zA-Z]+:\\/\\/)?" + // protocol
@@ -16,11 +21,20 @@ function isValidURL(url) {
 
     return pattern.test(url);
 }
+
+/**
+ * Function getDomainName that get the domain name from the given url
+ * @param {*} url 
+ * @returns 
+ */
 function getDomainName(url) {
     const urlObject = new URL(url);
     return urlObject.hostname;
 }
 
+/**
+ * Function addBookmarkFunct that adds a new bookmark list item
+ */
 function addBookmarkFunct() {
     const url = inputField.value.trim();
     if (isValidURL(url)) {
