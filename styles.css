@@ -249,6 +249,18 @@ ul li.completed {
 .bookmarks {
   grid-column: 1 / span 2;
   grid-row: 5 / span 1;
+  display: flex;
+}
+
+#urlInput {
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 30px !important;
+  width: 50%;
+  padding: 5px;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: normal;
 }
 
 .weather {
