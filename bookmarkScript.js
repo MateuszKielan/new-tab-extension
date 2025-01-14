@@ -1,7 +1,7 @@
 // Retrieve all the DOM elements
 const inputField = document.getElementById('urlInput');
 const addButton = document.getElementById('addBookmark');
-
+const bookmarkListField = document.getElementById('bookmarkList');
 
 function isValidURL(url) {
     const pattern = new RegExp(
@@ -16,9 +16,21 @@ function isValidURL(url) {
 
     return pattern.test(url);
 }
-
-function addBookmarkFunct() {
-    addButton.innerHTML = "Works";
+function getDomainName(url) {
+    const urlObject = new URL(url);
+    return urlObject.hostname;
 }
 
-addButton.addEventListener("click", addBookmarkFunct());
+function addBookmarkFunct() {
+    const url = inputField.value.trim();
+    if (isValidURL(url)) {
+        const nameWeb = getDomainName(url);
+        const bookmarkItem = document.createElement("li");
+        bookmarkItem.classList.add("bookmark-item");
+        bookmarkItem.innerHTML = `<a href="${url}" target="_blank">${nameWeb}</a>`;
+        bookmarkListField.appendChild(bookmarkItem); // Append to the list
+        inputField.value = "";
+    }
+}
+
+addButton.addEventListener("click", addBookmarkFunct);
