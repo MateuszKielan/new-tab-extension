@@ -28,7 +28,9 @@ function isValidURL(url) {
  * @returns 
  */
 function getDomainName(url) {
+    // Initialize new object
     const urlObject = new URL(url);
+    // Return host name
     return urlObject.hostname;
 }
 
@@ -36,9 +38,12 @@ function getDomainName(url) {
  * Function addBookmarkFunct that adds a new bookmark list item
  */
 function addBookmarkFunct() {
+    // Trim the spaces from the url
     const url = inputField.value.trim();
     if (isValidURL(url)) {
+        // Invoke the getDomainName to get the name from the current url
         const nameWeb = getDomainName(url);
+        // Add a new list element and append a child
         const bookmarkItem = document.createElement("li");
         bookmarkItem.classList.add("bookmark-item");
         bookmarkItem.innerHTML = `<a href="${url}" target="_blank">${nameWeb}</a>`;
@@ -47,4 +52,5 @@ function addBookmarkFunct() {
     }
 }
 
+// add an event Listener to the addButton
 addButton.addEventListener("click", addBookmarkFunct);
