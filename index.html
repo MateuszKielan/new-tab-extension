@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="dashboard">
     <!-- Header Section -->
 
@@ -65,13 +66,25 @@
 
     <!-- START Bookmarks Widget -->
     <div class="card bookmarks">
-      <input type="url" name="url" id="urlInput" placeholder="Enter Site URL">
-      <button id = "addBookmark">
-        Add Bookmark
+      <button id="bookmarkPanelOpen" class="icon-button">
+        <img src="src/bookmarkPlus.png" alt="Add Bookmark" class="icon-svg">
       </button>
+      
+      <div class="modal" id="modal">
+        <div class="modal-inner">
+          <h2> Works </h2>
+        </div>
+      </div>
+
+
+
+
+
+      <!--<input type="url" name="url" id="urlInput" placeholder="Enter Site URL">
       <ul id="bookmarkList">
-        <!-- List of bookmarks added here -->
-      </ul>
+        List of bookmarks added here 
+      </ul>-->
+
     </div>
     <!-- END Bookmarks Widget -->
 

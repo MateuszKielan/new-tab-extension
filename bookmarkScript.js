@@ -3,6 +3,25 @@ const inputField = document.getElementById('urlInput');
 const addButton = document.getElementById('addBookmark');
 const bookmarkListField = document.getElementById('bookmarkList');
 
+const modal = document.getElementById('modal');
+const overlay = document.querySelector('.overlay');
+const bookmarkPanelOpen = document.getElementById('bookmarkPanelOpen');
+
+function showModal() {
+    modal.classList.add('active');
+    overlay.classList.add('active');
+  }
+  
+  // Function to hide the modal
+  function hideModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+  
+  // Event listeners
+  bookmarkPanelOpen.addEventListener('click', showModal);
+  overlay.addEventListener('click', hideModal);
+
 /**
  * Function isValidURL that checks wheter the provided link is valid
  * @param {*} url 

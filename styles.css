@@ -262,6 +262,43 @@ ul li.completed {
   box-sizing: border-box;
   line-height: normal;
 }
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
+  z-index: 1000;
+  display: none;
+}
+
+.modal.active {
+  display: block;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Slightly behind the modal */
+  display: none; /* Hidden by default */
+}
+
+.overlay.active {
+  display: block; /* Show the overlay when the modal is active */
+}
 
 .weather {
   grid-column: span 1;display: flex;
