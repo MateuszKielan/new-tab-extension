@@ -249,9 +249,18 @@ ul li.completed {
 .bookmarks {
   grid-column: 1 / span 2;
   grid-row: 5 / span 1;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: row; /* Align items from left to right */
+  gap: 10px; /* Space between bookmarks */
+  overflow-x: auto; /* Allow scrolling if there are too many bookmarks */
+  padding: 10px;
+  white-space: nowrap; /* Prevent wrapping to the next line */
+}
+
+.bookmarkList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 #urlInput {
