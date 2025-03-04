@@ -1,8 +1,5 @@
 // Retrieve all the DOM elements
-const inputField = document.getElementById('urlInput');
-const addButton = document.getElementById('addBookmark');
 const bookmarkListField = document.getElementById('bookmarkList');
-
 const modal = document.getElementById('modal');
 const overlay = document.querySelector('.overlay');
 const bookmarkPanelOpen = document.getElementById('bookmarkPanelOpen');
@@ -58,14 +55,14 @@ function getDomainName(url) {
  */
 function addBookmarkFunct() {
     // Trim the spaces from the url
+    const inputField = document.getElementById('urlInput');
     const url = inputField.value.trim();
     if (isValidURL(url)) {
-        // Invoke the getDomainName to get the name from the current url
-        const nameWeb = getDomainName(url);
         // Add a new list element and append a child
+        const bookmarkNameField = document.getElementById('bookmarkNameInputField').value;
         const bookmarkItem = document.createElement("li");
         bookmarkItem.classList.add("bookmark-item");
-        bookmarkItem.innerHTML = `<a href="${url}" target="_blank">${nameWeb}</a>`;
+        bookmarkItem.innerHTML = `<a href="${url}" target="_blank">${bookmarkNameField}</a>`;
         bookmarkListField.appendChild(bookmarkItem); // Append to the list
         inputField.value = "";
     }

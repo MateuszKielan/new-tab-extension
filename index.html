@@ -13,9 +13,9 @@
           <form class="bookmarkForm"></form>
             <label for="bookmarkNameInputField">Name:</label>
             <input class="bookmarkInput" id="bookmarkNameInputField">
-            <label for="bookmarkNameUrlField">Url:</label>
-            <input class="bookmarkInput" id="bookmarkUrlInputField">
-            <button onclick="">Add</button>
+            <label for="urlInput">Url:</label>
+            <input class="bookmarkInput" id="urlInput">
+            <button onclick="addBookmarkFunct()">Add</button>
           </form>
         </div>
     </div>
@@ -77,6 +77,9 @@
 
     <!-- START Bookmarks Widget -->
     <div class="card bookmarks">
+      <ul id="bookmarkList">
+
+      </ul>
       <button id="bookmarkPanelOpen" class="icon-button">
         <img src="src/bookmarkPlus.png" alt="Add Bookmark" class="icon-svg">
       </button>
