@@ -3,6 +3,8 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container")
 
+
+
 /**
  * Function saveTask that saves the to-do item to local storage
  * @param {string} text 
@@ -12,14 +14,25 @@ function saveTask(text) {
     localStorage.setItem(taskName, JSON.stringify(text));
 }
 
+
+
+/**
+ * Function deleteTask that deletes the task from localStorage
+ * @param {string} text 
+ */
 function deleteTask(text) {
     localStorage.removeItem(`ToDo:${text}`)
 }
 
 
+
+/**
+ * Function renderTask that renders the to-do task with the given text 
+ * @param {string} text 
+ */
 function renderTask(text) {
     let li = document.createElement("li");
-    li.innerHTML = text;
+    li.innerHTML = `<p class="to-do-text"> ${text} </p>`;
     li.classList.add("task");
     li.addEventListener("click", function() {
         li.classList.toggle("completed");
@@ -30,9 +43,9 @@ function renderTask(text) {
 
     // Add the delete icon as an <img> inside the button
     let deleteIcon = document.createElement("img");
-    deleteIcon.src = "src/delete-sign.svg"; // Path to your delete icon
-    deleteIcon.alt = "Delete"; // Alternative text for accessibility
-    deleteIcon.classList.add("delete-icon"); // Add a class for styling
+    deleteIcon.src = "src/delete-sign.svg"; // Path to delete icon
+    deleteIcon.alt = "Delete"; // Alternative text
+    deleteIcon.classList.add("delete-icon");
 
     // Append the icon to the delete button
     deleteButton.appendChild(deleteIcon);
@@ -50,6 +63,8 @@ function renderTask(text) {
     listContainer.appendChild(li);
 }
 
+
+
 /**
  * Function addTask that adds a to-do item
  */
@@ -64,6 +79,8 @@ function addTask() {
     }
     inputBox.value = "";
 }
+
+
 
 /**
  * Function crossOutTask that toggles the completed class to cross out an element
@@ -97,6 +114,8 @@ document.querySelectorAll(".engine-btn").forEach(button => {
 
 // Setting the callout time to every second
 setInterval(updateTime, 1000);
+
+
 
 /**
  * Function updateTime that updates the current local time
@@ -133,6 +152,8 @@ function updateTime() {
         secField.innerHTML = sec;
     }
 }
+
+
 
 // Add all the to-do tasks saved in the local storage on refresh
 window.addEventListener("DOMContentLoaded", () => {
