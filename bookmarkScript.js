@@ -136,6 +136,4 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// add an event Listener to the addButton
-addButton.addEventListener("click", addBookmarkFunct);
 
