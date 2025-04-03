@@ -52,37 +52,90 @@ function getDomainName(url) {
     return urlObject.hostname;
 }
 
+/**
+ * Funtion getFavIcon that gets the url of a link and returns the icon of the website
+ * @param {*} url 
+ * @returns 
+ */
 function getFavIcon(url) {
     const hostName = new URL(url).hostname
     return `https://icons.duckduckgo.com/ip3/${hostName}.ico`;
 
 }
 
+/**
+ * Function saveItem that saves the bookmark as an array with a bookmark prefix
+ * @param {*} name 
+ * @param {*} url 
+ * @param {*} icon 
+ */
+function saveItem(name, url, icon) {
+  const flexArr = [name,url,icon]
+  const bookmarkName = `bookmark:${name}`
+  localStorage.setItem(bookmarkName, JSON.stringify(flexArr));
+}
+
+/**
+ * Function renderBookmark that takes 3 parameters and creates a bookmark item
+ * @param {*} name 
+ * @param {*} url 
+ * @param {*} icon 
+ */
+function renderBookmark(name, url, icon) {
+  const bookmarkListField = document.getElementById("bookmarkList");
+  const li = document.createElement("li");
+  li.classList.add("bookmark-item");
+
+  li.innerHTML = `
+    <a href="${url}" target="_blank">
+      <img src="${icon}" alt="favicon" class="favicon-icon">
+      ${name}
+    </a>
+  `;
+
+  bookmarkListField.appendChild(li);
+}
 
 /**
  * Function addBookmarkFunct that adds a new bookmark list item
  */
 function addBookmarkFunct() {
-    // Trim the spaces from the url
+    // Retrieve the elements
     const inputField = document.getElementById('urlInput');
+    const bookmarkNameField = document.getElementById('bookmarkNameInputField').value;
     const url = inputField.value.trim();
     const favIcon = getFavIcon(url)
 
 
     if (isValidURL(url)) {
-        // Add a new list element and append a child
-        const bookmarkNameField = document.getElementById('bookmarkNameInputField').value;
-        const bookmarkItem = document.createElement("li");
-        bookmarkItem.classList.add("bookmark-item");
-        bookmarkItem.innerHTML = `
-        <a href="${url}" target="_blank" class="bookmark-link">
-        <img src="${favIcon}" alt="favicon" class="favicon-icon">
-        ${bookmarkNameField}
-        </a> `;
-        bookmarkListField.appendChild(bookmarkItem); // Append to the list
+        //  Save and render the bookmark from the local storage 
+        saveItem(bookmarkNameField,url,favIcon)
+        renderBookmark(bookmarkNameField, url, favIcon);
+
+        // Clear the input fields
         inputField.value = "";
+        bookmarkNameField.value = "";
     }
+
+
 }
+
+// Add an event Listener that loads all the bookmarks from the dataset
+window.addEventListener("DOMContentLoaded", () => {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('bookmark:')) {
+      try {
+        const bookmarkData = JSON.parse(localStorage.getItem(key));
+        renderBookmark(bookmarkData[0], bookmarkData[1], bookmarkData[2]);
+      } catch (e) {
+        // Skip if it's not valid bookmark data
+        console.warn(`Skipping corrupted bookmark: ${key}`);
+      }
+    }
+  }
+});
 
 // add an event Listener to the addButton
 addButton.addEventListener("click", addBookmarkFunct);
+
