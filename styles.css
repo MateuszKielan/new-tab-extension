@@ -264,6 +264,16 @@ ul li.completed {
   text-decoration: none;
 }
 
+.bookmark-item a{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
 #urlInput {
   background-color: #ffffff;
   border-radius: 15px;
@@ -274,6 +284,11 @@ ul li.completed {
   box-sizing: border-box;
   line-height: normal;
 }
+
+.bookmark-link {
+  text-decoration: none;
+}
+
 .icon-button {
   background-color: transparent;
   border: none;

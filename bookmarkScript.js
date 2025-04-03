@@ -19,6 +19,8 @@ function showModal() {
   bookmarkPanelOpen.addEventListener('click', showModal);
   overlay.addEventListener('click', hideModal);
 
+
+
 /**
  * Function isValidURL that checks wheter the provided link is valid
  * @param {*} url 
@@ -50,6 +52,13 @@ function getDomainName(url) {
     return urlObject.hostname;
 }
 
+function getFavIcon(url) {
+    const hostName = new URL(url).hostname
+    return `https://icons.duckduckgo.com/ip3/${hostName}.ico`;
+
+}
+
+
 /**
  * Function addBookmarkFunct that adds a new bookmark list item
  */
@@ -57,12 +66,19 @@ function addBookmarkFunct() {
     // Trim the spaces from the url
     const inputField = document.getElementById('urlInput');
     const url = inputField.value.trim();
+    const favIcon = getFavIcon(url)
+
+
     if (isValidURL(url)) {
         // Add a new list element and append a child
         const bookmarkNameField = document.getElementById('bookmarkNameInputField').value;
         const bookmarkItem = document.createElement("li");
         bookmarkItem.classList.add("bookmark-item");
-        bookmarkItem.innerHTML = `<a href="${url}" target="_blank">${bookmarkNameField}</a>`;
+        bookmarkItem.innerHTML = `
+        <a href="${url}" target="_blank" class="bookmark-link">
+        <img src="${favIcon}" alt="favicon" class="favicon-icon">
+        ${bookmarkNameField}
+        </a> `;
         bookmarkListField.appendChild(bookmarkItem); // Append to the list
         inputField.value = "";
     }
