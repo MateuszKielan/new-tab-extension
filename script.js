@@ -4,43 +4,63 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container")
 
 /**
+ * Function saveTask that saves the to-do item to local storage
+ * @param {string} text 
+ */
+function saveTask(text) { 
+    const taskName = `ToDo:${text}`;
+    localStorage.setItem(taskName, JSON.stringify(text));
+}
+
+function deleteTask(text) {
+    localStorage.removeItem(`ToDo:${text}`)
+}
+
+
+function renderTask(text) {
+    let li = document.createElement("li");
+    li.innerHTML = text;
+    li.classList.add("task");
+    li.addEventListener("click", function() {
+        li.classList.toggle("completed");
+    });
+    // Create a delete button
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-btn");
+
+    // Add the delete icon as an <img> inside the button
+    let deleteIcon = document.createElement("img");
+    deleteIcon.src = "src/delete-sign.svg"; // Path to your delete icon
+    deleteIcon.alt = "Delete"; // Alternative text for accessibility
+    deleteIcon.classList.add("delete-icon"); // Add a class for styling
+
+    // Append the icon to the delete button
+    deleteButton.appendChild(deleteIcon);
+
+    // Add an event listener to delete the task when the button is clicked
+    deleteButton.addEventListener("click", function(event) {
+        event.stopPropagation(); // Prevents the click from toggling "completed" on the task
+        deleteTask(text);
+        li.remove();
+    });
+
+    // Append the delete button to the <li>
+    li.appendChild(deleteButton);
+
+    listContainer.appendChild(li);
+}
+
+/**
  * Function addTask that adds a to-do item
  */
 function addTask() {
+    const taskText = inputBox.value
     if (inputBox.value === '') {
         alert("You must write something!");
     } else {
-        let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        li.classList.add("task");
-
-        // Add an event listener to toggle the "completed" class on click
-        li.addEventListener("click", function() {
-            li.classList.toggle("completed");
-        });
-        // Create a delete button
-        let deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-btn");
-
-        // Add the delete icon as an <img> inside the button
-        let deleteIcon = document.createElement("img");
-        deleteIcon.src = "src/delete-sign.svg"; // Path to your delete icon
-        deleteIcon.alt = "Delete"; // Alternative text for accessibility
-        deleteIcon.classList.add("delete-icon"); // Add a class for styling
-
-        // Append the icon to the delete button
-        deleteButton.appendChild(deleteIcon);
-
-        // Add an event listener to delete the task when the button is clicked
-        deleteButton.addEventListener("click", function(event) {
-            event.stopPropagation(); // Prevents the click from toggling "completed" on the task
-            li.remove();
-        });
-
-        // Append the delete button to the <li>
-        li.appendChild(deleteButton);
-
-        listContainer.appendChild(li);
+        // Save and Render task
+        saveTask(taskText)
+        renderTask(taskText)
     }
     inputBox.value = "";
 }
@@ -114,5 +134,18 @@ function updateTime() {
     }
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+    for (let i= 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('ToDo:')) {
+            try {
+                const taskData = JSON.parse(localStorage.getItem(key));
+                renderTask(taskData)
+            } catch(e) {
+                console.warn("Skipping corrupted tasks")
+            }
+        }
+    }
+})
 // Call the function
 updateTime()
