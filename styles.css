@@ -268,6 +268,7 @@ ul li.completed {
   gap: 30px;
   list-style: none;
   text-decoration: none;
+  color: #F2E5BF;
 }
 
 .bookmark-item a{
@@ -278,6 +279,7 @@ ul li.completed {
   background-color: #fff;
   padding: 8px 12px;
   border-radius: 6px;
+  text-decoration: none;
 }
 
 #urlInput {

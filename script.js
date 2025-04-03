@@ -134,6 +134,7 @@ function updateTime() {
     }
 }
 
+// Add all the to-do tasks saved in the local storage on refresh
 window.addEventListener("DOMContentLoaded", () => {
     for (let i= 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);

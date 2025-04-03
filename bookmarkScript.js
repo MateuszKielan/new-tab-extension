@@ -4,6 +4,10 @@ const modal = document.getElementById('modal');
 const overlay = document.querySelector('.overlay');
 const bookmarkPanelOpen = document.getElementById('bookmarkPanelOpen');
 
+/**
+ * Function showModal that turns modal overlay on and off when
+ * turning on the add button function
+ */
 function showModal() {
     modal.classList.add('active');
     overlay.classList.add('active');
