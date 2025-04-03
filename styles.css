@@ -107,6 +107,11 @@ body::before {
   width: 100%;
 }
 
+.list-cont {
+  overflow-y: scroll; 
+  height: 400px;
+}
+
 input {
   flex: 1;
   border: none;
