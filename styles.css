@@ -253,6 +253,7 @@ ul li.completed {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .bookmarkList {
@@ -291,9 +292,21 @@ ul li.completed {
 
 .icon-button {
   background-color: transparent;
+  display: flex;
   border: none;
   cursor: pointer;
+  align-items: center;
+  justify-content:center;
+  width: 100px;
+  height: 100px;
 }
+
+.icon-svg {
+  width: 90px;
+  height: 90px;
+}
+
+
 .modal {
   position: fixed;
   top: 50%;
