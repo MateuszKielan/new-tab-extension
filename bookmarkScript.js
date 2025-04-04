@@ -13,15 +13,15 @@ function showModal() {
     overlay.classList.add('active');
   }
   
-  // Function to hide the modal
-  function hideModal() {
+// Function to hide the modal
+function hideModal() {
     modal.classList.remove('active');
     overlay.classList.remove('active');
-  }
+}
   
-  // Event listeners
-  bookmarkPanelOpen.addEventListener('click', showModal);
-  overlay.addEventListener('click', hideModal);
+// Event listeners
+bookmarkPanelOpen.addEventListener('click', showModal);
+overlay.addEventListener('click', hideModal);
 
 
 
