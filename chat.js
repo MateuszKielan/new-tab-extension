@@ -49,6 +49,7 @@ chatForm.addEventListener('submit', async (e) => {
 });
 
 
+// Track the double click and clear the display field
 chatDisplay.addEventListener('dblclick', () => {
     chatDisplay.innerHTML = '';
 });
