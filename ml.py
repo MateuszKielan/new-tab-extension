@@ -52,7 +52,6 @@ def sample_news(api_key, query="technology"):
     samples = sample_by_cluster(df, labels)
     return samples
 
-# Example use
 if __name__ == "__main__":
     api_key = "your_newsapi_key_here"
     result = sample_news(api_key, query="AI")
