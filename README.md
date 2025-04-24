@@ -21,7 +21,7 @@ Displays the live current time using system's clock directly linked to your loca
 Talk to ChatGPT directly through the dashboard! Send prompts and receive responses using OpenAI's API. (Requires your own API key.)
 
 📰 News 
-AI model sampling news based on your search history and feedback
+AI model sampling news based on your search history and feedback (feature in BETA testing)
 
 
 👀Upcoming 
