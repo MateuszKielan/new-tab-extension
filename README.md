@@ -1,0 +1,1 @@
+All-in-one Productivity Dashboard — a sleek, customizable browser-based workspace built with vanilla HTML, CSS, and JavaScript. This dashboard includes interactive widgets to help you stay productive, organized, and connected — all in one place.
