@@ -1,6 +1,7 @@
 All-in-one Productivity Dashboard — a customizable browser-based workspace built with vanilla HTML, CSS, and JavaScript. This dashboard includes interactive widgets to help you stay productive, organized, and connected — all in one place.
 
 🛠️ Features
+
 ✅ To-Do List
 Track your daily tasks. Add and complete items with a single click. Tasks are stored in localStorage, so they persist across sessions.
 
