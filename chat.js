@@ -4,6 +4,7 @@ const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatDisplay = document.getElementById('chatDisplay');
 
+// Submit Form
 chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
