@@ -25,4 +25,4 @@ AI model sampling news based on your search history and feedback (feature in BET
 
 
 👀Upcoming 
-Integration with Gmail and google calendar in your workspace
+Integration with Gmail and google calendar in workspace
