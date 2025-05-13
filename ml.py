@@ -33,6 +33,7 @@ def cluster_articles(vectors, num_clusters=5):
     """
     Function cluster_articles that clusters the articles according to k-means algorithm
     """
+    # Use k means clustering
     kmeans = KMeans(n_clusters=num_clusters, random_state=42)
     kmeans.fit(vectors)
     return kmeans.labels_
