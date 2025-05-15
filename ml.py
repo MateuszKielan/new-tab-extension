@@ -54,7 +54,7 @@ def sample_news(api_key, query="technology"):
     return samples
 
 if __name__ == "__main__":
-    api_key = "478967ea948d4cf8a9753fa67aaf162c"
+    api_key = ""
     result = sample_news(api_key, query="AI")
     final_res = result.to_string(index=False)
 
