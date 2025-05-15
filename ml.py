@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import random
 
-def fetch_news(api_key, query="technology", page_size=50):
+def fetch_news(api_key, query="technology", page_size=20):
     """
     Function fetch_news that samples news from given urlS
     
@@ -54,6 +54,8 @@ def sample_news(api_key, query="technology"):
     return samples
 
 if __name__ == "__main__":
-    api_key = "your_newsapi_key_here"
+    api_key = "478967ea948d4cf8a9753fa67aaf162c"
     result = sample_news(api_key, query="AI")
-    print(result.to_string(index=False))
+    final_res = result.to_string(index=False)
+
+    print(final_res)
